@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Kalkulator Aritmatika</title>
+    <title>Kalkulator Aritmatika Sederhana</title>
 </head>
 <body>
     <h2>Kalkulator Aritmatika</h2>
@@ -26,30 +26,33 @@
         <input type="submit" name="submit" value="Hitung">
     </form>
 
-    <!-- Proses perhitungan dengan PHP -->
     <?php
+    // Mengecek apakah tombol submit ditekan
     if (isset($_POST['submit'])) {
+        // Menyimpan nilai input ke dalam variabel
         $angka1 = $_POST['angka1'];
         $angka2 = $_POST['angka2'];
         $operasi = $_POST['operasi'];
         $hasil = "";
 
-        // Validasi input harus angka
+        // Mengecek apakah input berupa angka
         if (is_numeric($angka1) && is_numeric($angka2)) {
+            // Logika if-else untuk memilih jenis operasi
             if ($operasi == "tambah") {
-                $hasil = $angka1 + $angka2;
+                $hasil = $angka1 + $angka2; // Operator penjumlahan
             } elseif ($operasi == "kurang") {
-                $hasil = $angka1 - $angka2;
+                $hasil = $angka1 - $angka2; // Operator pengurangan
             } elseif ($operasi == "kali") {
-                $hasil = $angka1 * $angka2;
+                $hasil = $angka1 * $angka2; // Operator perkalian
             } elseif ($operasi == "bagi") {
                 if ($angka2 != 0) {
-                    $hasil = $angka1 / $angka2;
+                    $hasil = $angka1 / $angka2; // Operator pembagian
                 } else {
                     $hasil = "Error: Tidak bisa membagi dengan nol!";
                 }
             }
 
+            // Menampilkan hasil perhitungan
             echo "<h3>Hasil: $hasil</h3>";
         } else {
             echo "<h3>Input harus berupa angka!</h3>";
